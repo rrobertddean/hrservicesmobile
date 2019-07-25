@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+        <base href="./">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="keyword" content="">
+        <!-- Icons-->
+        <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+        <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+        <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+        <!-- Main styles for this application-->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="css/loader.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <title>ULMA - Approvals</title>
+
+       
+    </head>
+    <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show" >
+        
+      
+        <header class="app-header navbar">
+            <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)" style="color:black;">
+              <!-- <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
+              <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo"> -->
+                HR SERVICES - BETA
+              </a>
+            <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <ul class="nav navbar-nav ml-auto">
+             
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:void(0)">
+                  <!-- <img class="img-avatar" src="img/avatars/avatar.png" alt="admin@bootstrapmaster.com"> -->
+                  <img class="img-avatar" src="img/unifrutti.png" />
+                </a>
+                
+              </li>
+            </ul>
+           
+          </header>
+          <div class="app-body">
+            <div class="sidebar">
+              <nav class="sidebar-nav">
+                <ul class="nav">
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                      <i class="fa fa-globe"></i> Leave Management App
+                      <span class="badge badge-primary">NEW</span>
+                    </a>
+                  </li> -->
+                 
+                  <!-- <li class="nav-title">Components</li> -->
+
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fa fa-user"></i> My Account</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="prf.html"><i class="fa fa-print"></i> PRF</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="application.html"><i class="fa fa-paper-plane"></i> Leave/OBT</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="approvals.html"><i class="fa fa-handshake-o"></i> Approvals</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="javascript:void(0)" onclick="document.location.reload()"><i class="fa fa-refresh"></i> Refresh Connection</a>
+                  </li>
+
+                </ul>
+              </nav>
+              <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+            </div>
+            <main class="main">
+              <!-- Breadcrumb-->
+              <ol class="breadcrumb" style="margin-bottom:0">
+                <li class="breadcrumb-item">Connection Status: <span id="lbl-constatus"></span></li>
+                </ol>
+              <div class="container-fluids">
+                <div class="animated fadeIn">
+                  <div class="col-sm-12" style="padding:0;">
+                      <div class="card" style="padding-bottom:100px;">
+                           
+                        <div style="width:95%;margin:0 auto;margin-top:10px;">
+
+                            <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-leaves-tab" data-toggle="pill" href="#pills-leaves" role="tab" aria-controls="pills-leaves" aria-selected="true">Leaves</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-obt-tab" data-toggle="pill" href="#pills-obt" role="tab" aria-controls="pills-obt" aria-selected="false">OBT</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-leaves" role="tabpanel" aria-labelledby="pills-leaves-tab">
+                                    <div class="table-responsive">
+                                        <table class="table" id="tblEmployeesLeaves">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>
+                                                        <i class="icon-people"></i>
+                                                    </th>
+                                                    <th>Name</th>
+                                                    <th>Type</th>
+                                                    <th style="text-align:center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="text-align:left;">
+                                                
+                                            </tbody>
+                    
+                                        </table>
+                                        </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-obt" role="tabpanel" aria-labelledby="pills-obt-tab">
+                                    <div class="table-responsive">
+                                        <table class="table" id="tblEmployeesObt">
+                                            <thead class="">
+                                                <tr>
+                                                    <th>
+                                                        <i class="icon-people"></i>
+                                                    </th>
+                                                    <th>Name</th>
+                                                    <th>Destination</th>
+                                                    <th style="text-align:center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="text-align:left;">
+                                                
+
+                                            </tbody>
+                    
+                                        </table>
+                                        </div>
+                                </div>
+                            </div>
+
+                    </div>
+
+
+
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+          <footer class="app-footer">
+            <div>
+              <a href="javascript:void(0)">Unifrutti</a>
+              <span>&copy; 2019</span>
+            </div>
+            <div class="ml-auto">
+              <span>Powered by</span>
+              <a href="javascript:void(0)">ITS</a>
+            </div>
+          </footer>
+
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalNotification">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <p>Please Set Username and Passkey to show data. Thanks</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalLeave">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">Manage Leave</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <div>
+            <p><b>Name:</b> <span id="leaveinfoName"></span></p>
+            <p><b>Reason:</b> <span id="leaveinfoReason"></span></p>
+          </div>
+          <hr />
+
+          <div class="form-group">
+            <label for="selectLeaveAction">Action</label>
+            <select class="form-control" id="selectLeaveAction">
+                <option value="1">Approve</option>
+                <option value="2">Disapprove</option>
+                <option value="4">Cancel</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="leavenote">Note</label>
+            <textarea class="form-control" id="leavenote" rows="3"></textarea>
+          </div>
+        
+      </div>  
+      <div class="modal-footer">
+          <input type="hidden" id="leaveTranscode" />
+          <button type="button" class="btn btn-primary" onclick="updateLeaveTrans()">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalCheckConnection">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Error</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <p>Please make sure you are connected in Unifrutti Network or in the Internet</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+      </div>
+  
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalObt">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">Manage OBT</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <div>
+            <p><b>Name:</b> <span id="obtinfoName"></span></p>
+            <p><b>Destination:</b> <span id="obtinfoDestination"></span></p>
+            <p><b>Purpose:</b> <span id="obtinfoPurpose"></span></p>
+          </div>
+          <hr />
+
+          <div class="form-group">
+            <label for="selectObtAction">Action</label>
+            <select class="form-control" id="selectObtAction">
+                <option value="1">Approve</option>
+                <option value="2">Disapprove</option>
+                <option value="4">Cancel</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="obtnote">Note</label>
+            <textarea class="form-control" id="obtnote" rows="3"></textarea>
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+          <input type="hidden" id="obtTranscode" />
+          <button type="button" class="btn btn-primary" onclick="updateObtTrans()">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<div class="modalLoader"></div>
+
+         <!-- CoreUI and necessary plugins-->
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="node_modules/pace-progress/pace.min.js"></script>
+        <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+        <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+        <!-- Plugins and scripts required by this view-->
+        <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+        <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+        <!-- <script src="js/main.js"></script> -->
+
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript" src="js/controller/approvals.js"></script>
+
+        <!-- <script type="text/javascript" src="js/controller/index/index.js"></script> -->
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- <script type="text/javascript" src="js/index.js"></script> -->
+
+        
+
+
+        <script type="text/javascript">
+            
+        </script>
+    </body>
+</html>

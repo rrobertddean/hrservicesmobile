@@ -1,0 +1,34 @@
+#notif-account {
+    display:none;
+}
+
+#togglePassword {
+    /* display:inline-block; */
+    margin-top:5px;
+}
+
+.showrecords-holder {
+    text-align:right;
+}
+
+.labelcust1 {
+    display:inline-block;
+    float:left;
+    padding-top:7px;
+    width:20%;
+}
+
+.inputcust1 {
+    width:70%;
+    display:inline-block;
+    float:left;
+    margin-left:10px;
+}
+
+.margtop10 {
+    margin-top:10px;
+}
+
+.margtop20 {
+    margin-top:20px;
+}
